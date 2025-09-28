@@ -57,29 +57,38 @@ class _PostListScreenState extends State<PostListScreen> {
                 return Card(
                   margin: const EdgeInsets.symmetric(
                     vertical: 8,
-                    horizontal: 16,
+                    horizontal: 12,
                   ),
-                  elevation: 4,
                   child: Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.all(12.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // บรรทัดแรก: UserId ชิดขวา
+                        Align(
+                          alignment: Alignment.topRight,
+                          child: Text(
+                            'User ${post.userId}',
+                            style: const TextStyle(
+                              color: Colors.grey,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+
+                        // บรรทัดสอง: Title ชิดซ้าย
                         Text(
                           '${post.id}. ${post.title}',
                           style: const TextStyle(
-                            fontSize: 18,
                             fontWeight: FontWeight.bold,
+                            fontSize: 16,
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Text(
-                          post.body,
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey[700],
-                          ),
-                        ),
+
+                        // บรรทัดสาม: Body
+                        Text(post.body),
                       ],
                     ),
                   ),
